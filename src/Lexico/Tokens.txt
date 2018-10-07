@@ -1,0 +1,16 @@
+||
+!=
+<=
+>=
+==
+<
+>
+=
+&&
+
+// Hola mierdosos
+/* asdasd
+asdasd 
+*/
+/* Aasdasdasdasdasd */
+// qweqweqweqweqweqweqweqweqwe
