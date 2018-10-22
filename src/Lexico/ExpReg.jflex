@@ -66,14 +66,17 @@ Comentario = "//"({caracteres} | [ \t\f\r])* | "/*"({caracteres} | {WhiteSpace})
 ErCadena = {Reales}{letras}({caracteres} | {guion} | {Reales} )*
 //ErOplog = ( \= | \! | \& | \| | \< | \>)( \= | \! | \& | \| | \< | \>)( \= | \! | \& | \| | \< | \>)*
 ErAdicionales = \! | \= | \& | \|
-//ErOplog = ({oplog} | {ErAdicionales})+({oplog} | {ErAdicionales})({oplog} | {ErAdicionales})* | ({oplog} | {ErAdicionales})*({oplog}|{ErAdicionales})({oplog} | {ErAdicionales})+
+ErOplog = (({oplog} | {ErAdicionales})+({oplog})({oplog} | {ErAdicionales})* | ({oplog} | {ErAdicionales})*({oplog})({oplog} | {ErAdicionales})+)
+| \=\!
+ErOpBas = ({OpBas})+({OpBas})({OpBas})* | ({OpBas})*({OpBas})({OpBas})+
 
 
 %%
 /**/
 {Comentario}    { System.out.println("Comentario: " + yytext()); }
 {ErCadena}      { System.out.println("Error: " + yytext()); }
-//{ErOplog}       { System.out.println("ErLOg: " + yytext()); }
+{ErOplog}       { System.out.println("ErLOg: " + yytext()); }
+{ErOpBas}       { System.out.println("ErOpBas: "+ yytext());}
 {DosPuntos}     { System.out.println("Dos puntos: "+ yytext());}
 {ParentesisA}   { System.out.println("Paréntesis abierto: "+ yytext());}
 {ParentesisC}   { System.out.println("Paréntesis cerrado: "+ yytext());}

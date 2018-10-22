@@ -33,13 +33,13 @@ public class AlgotitmoLexico {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\3\1\2\1\0\1\3\1\1\22\0\1\3\1\14\1\31"+
-    "\1\33\1\33\1\21\1\15\1\33\1\24\1\25\1\17\1\16\1\26"+
-    "\1\5\1\6\1\20\12\4\1\23\1\32\1\12\1\13\1\12\1\33"+
-    "\1\33\32\10\1\27\1\0\1\30\1\22\1\7\1\0\32\11\1\0"+
-    "\1\15\102\0\1\33\1\0\1\33\7\0\1\33\3\0\1\33\3\0"+
-    "\1\33\1\0\1\33\6\0\1\33\6\0\1\33\7\0\1\33\3\0"+
-    "\1\33\3\0\1\33\1\0\1\33\6\0\1\33\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uff15\0";
+    "\11\0\1\3\1\2\1\0\1\3\1\1\22\0\1\3\1\14\1\32"+
+    "\1\34\1\34\1\22\1\15\1\34\1\25\1\26\1\20\1\17\1\27"+
+    "\1\5\1\6\1\21\12\4\1\24\1\33\1\12\1\13\1\12\1\34"+
+    "\1\34\32\10\1\30\1\0\1\31\1\23\1\7\1\0\32\11\1\0"+
+    "\1\16\102\0\1\34\1\0\1\34\7\0\1\34\3\0\1\34\3\0"+
+    "\1\34\1\0\1\34\6\0\1\34\6\0\1\34\7\0\1\34\3\0"+
+    "\1\34\3\0\1\34\1\0\1\34\6\0\1\34\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uff15\0";
 
   /** 
    * Translates characters to character classes
@@ -53,13 +53,13 @@ public class AlgotitmoLexico {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\2\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10\1\11\1\1\1\12\1\13\1\14\1\15\1\16"+
+    "\1\10\1\11\3\1\1\12\1\13\1\14\1\15\1\16"+
     "\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26"+
-    "\1\0\1\27\1\30\1\31\1\32\1\33\1\34\1\0"+
-    "\1\35\1\3\1\0\1\35";
+    "\1\0\1\27\1\30\1\31\2\32\3\0\1\33\1\30"+
+    "\1\34\1\3\1\0\1\30\1\0\2\34";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[37];
+    int [] result = new int[45];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -84,14 +84,15 @@ public class AlgotitmoLexico {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\34\0\70\0\34\0\124\0\160\0\34\0\214"+
-    "\0\250\0\304\0\304\0\304\0\340\0\34\0\374\0\34"+
-    "\0\34\0\34\0\34\0\34\0\34\0\34\0\34\0\34"+
-    "\0\34\0\u0118\0\u0134\0\34\0\34\0\304\0\34\0\34"+
-    "\0\u0150\0\u016c\0\u0188\0\u01a4\0\u0150";
+    "\0\0\0\35\0\72\0\35\0\127\0\164\0\35\0\221"+
+    "\0\256\0\313\0\350\0\u0105\0\u0122\0\u013f\0\u015c\0\u0179"+
+    "\0\u0196\0\u0179\0\u0179\0\35\0\35\0\35\0\35\0\35"+
+    "\0\35\0\35\0\35\0\u01b3\0\u01d0\0\u0179\0\35\0\313"+
+    "\0\u01ed\0\u020a\0\u0227\0\u01ed\0\35\0\u0244\0\u0261\0\u027e"+
+    "\0\u029b\0\u02b8\0\u02d5\0\u0244\0\u029b";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[37];
+    int [] result = new int[45];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -115,20 +116,29 @@ public class AlgotitmoLexico {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\2\4\1\5\1\6\1\7\2\10\1\11"+
-    "\1\12\1\13\2\14\1\15\1\16\1\17\1\20\1\21"+
+    "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21"+
     "\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
-    "\1\2\36\0\1\4\35\0\1\5\1\0\1\32\1\0"+
-    "\2\33\26\0\1\5\1\34\5\0\1\35\24\0\1\10"+
-    "\2\0\3\10\26\0\1\10\2\0\2\10\1\11\34\0"+
-    "\4\36\31\0\1\37\2\0\1\40\34\0\1\41\1\42"+
-    "\17\0\1\43\33\0\6\33\2\0\1\33\1\0\16\33"+
-    "\1\0\11\41\2\0\1\41\1\0\1\41\1\44\14\41"+
-    "\1\0\1\42\1\0\7\42\2\0\1\42\1\0\16\42"+
-    "\4\0\1\43\3\0\2\33\23\0\11\41\2\0\1\41"+
-    "\1\0\1\41\1\44\1\45\13\41";
+    "\1\32\1\33\1\2\37\0\1\4\36\0\1\5\1\0"+
+    "\1\34\1\0\2\35\27\0\1\5\1\36\5\0\1\37"+
+    "\3\0\5\36\15\0\1\10\2\0\3\10\27\0\1\10"+
+    "\2\0\2\10\1\11\35\0\5\40\30\0\1\40\1\12"+
+    "\1\41\1\42\1\43\30\0\1\40\1\12\1\44\1\42"+
+    "\1\43\30\0\1\40\2\44\1\12\1\43\30\0\1\40"+
+    "\2\44\1\42\1\12\23\0\1\36\5\0\1\45\3\0"+
+    "\5\36\16\0\1\36\11\0\5\36\16\0\1\36\11\0"+
+    "\1\36\1\46\1\47\2\36\15\0\1\50\34\0\6\35"+
+    "\2\0\1\35\2\0\16\35\12\0\2\40\1\44\1\42"+
+    "\1\43\30\0\1\40\2\44\1\40\1\43\30\0\1\40"+
+    "\2\44\1\42\1\40\17\0\4\51\1\46\4\51\2\0"+
+    "\1\51\2\0\1\46\1\52\3\46\11\51\1\0\1\47"+
+    "\1\0\7\47\2\0\1\47\2\0\16\47\4\0\1\50"+
+    "\3\0\2\35\24\0\11\51\2\0\1\51\2\0\1\51"+
+    "\1\53\14\51\1\0\4\51\1\46\4\51\2\0\1\51"+
+    "\2\0\1\46\1\52\1\54\2\46\11\51\1\0\11\51"+
+    "\2\0\1\51\2\0\1\51\1\53\1\55\13\51";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[448];
+    int [] result = new int[754];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -166,12 +176,12 @@ public class AlgotitmoLexico {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\1\1\1\11\2\1\1\11\6\1\1\11"+
-    "\1\1\12\11\1\0\1\1\2\11\1\1\2\11\1\0"+
-    "\2\1\1\0\1\1";
+    "\1\0\1\11\1\1\1\11\2\1\1\11\14\1\10\11"+
+    "\1\0\2\1\1\11\2\1\3\0\1\11\3\1\1\0"+
+    "\1\1\1\0\2\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[37];
+    int [] result = new int[45];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -620,119 +630,115 @@ public class AlgotitmoLexico {
           case 1: 
             { System.out.print(yytext());
             }
-          case 30: break;
+          case 29: break;
           case 2: 
             { 
             }
-          case 31: break;
+          case 30: break;
           case 3: 
             { System.out.println("Numero: "+ yytext());
             }
-          case 32: break;
+          case 31: break;
           case 4: 
             { System.out.println("Resta: "+ yytext());
             }
-          case 33: break;
+          case 32: break;
           case 5: 
             { System.out.println("Punto: "+ yytext());
             }
-          case 34: break;
+          case 33: break;
           case 6: 
             { System.out.println("Texto: "+ yytext());
             }
-          case 35: break;
+          case 34: break;
           case 7: 
             { System.out.println("Tokens: "+ yytext());
             }
-          case 36: break;
+          case 35: break;
           case 8: 
             { System.out.println("Operador: " + yytext());
             }
-          case 37: break;
+          case 36: break;
           case 9: 
             { System.out.println("Asignacion: "+ yytext());
             }
-          case 38: break;
+          case 37: break;
           case 10: 
             { System.out.println("Suma: "+ yytext());
             }
-          case 39: break;
+          case 38: break;
           case 11: 
             { System.out.println("Multi: "+ yytext());
             }
-          case 40: break;
+          case 39: break;
           case 12: 
             { System.out.println("Div: "+ yytext());
             }
-          case 41: break;
+          case 40: break;
           case 13: 
             { System.out.println("Mod: "+ yytext());
             }
-          case 42: break;
+          case 41: break;
           case 14: 
             { System.out.println("Potencia: "+ yytext());
             }
-          case 43: break;
+          case 42: break;
           case 15: 
             { System.out.println("Dos puntos: "+ yytext());
             }
-          case 44: break;
+          case 43: break;
           case 16: 
             { System.out.println("Paréntesis abierto: "+ yytext());
             }
-          case 45: break;
+          case 44: break;
           case 17: 
             { System.out.println("Paréntesis cerrado: "+ yytext());
             }
-          case 46: break;
+          case 45: break;
           case 18: 
             { System.out.println("Coma: "+ yytext());
             }
-          case 47: break;
+          case 46: break;
           case 19: 
             { System.out.println("Corchete abierto: "+ yytext());
             }
-          case 48: break;
+          case 47: break;
           case 20: 
             { System.out.println("Corchete cerrado: "+ yytext());
             }
-          case 49: break;
+          case 48: break;
           case 21: 
             { System.out.println("Comillas: "+ yytext());
             }
-          case 50: break;
+          case 49: break;
           case 22: 
             { System.out.println("Punto y coma: "+ yytext());
             }
-          case 51: break;
+          case 50: break;
           case 23: 
             { System.out.println("Error: " + yytext());
             }
-          case 52: break;
+          case 51: break;
           case 24: 
-            { System.out.println("Dec: "+ yytext());
+            { System.out.println("ErOpBas: "+ yytext());
             }
-          case 53: break;
+          case 52: break;
           case 25: 
             { System.out.println("DecAbr: "+ yytext());
             }
-          case 54: break;
+          case 53: break;
           case 26: 
             { System.out.println("ErLOg: " + yytext());
             }
-          case 55: break;
+          case 54: break;
           case 27: 
             { System.out.println("IncAbr: "+ yytext());
             }
-          case 56: break;
+          case 55: break;
           case 28: 
-            { System.out.println("Inc: "+ yytext());
-            }
-          case 57: break;
-          case 29: 
             { System.out.println("Comentario: " + yytext());
             }
-          case 58: break;
+          case 56: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

@@ -13,10 +13,10 @@ import java.util.logging.Logger;
  * @author felipe
  */
 public class Interprete {
-
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
 
         FileInputStream stream = null;
