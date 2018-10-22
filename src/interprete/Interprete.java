@@ -18,14 +18,14 @@ public class Interprete {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+
         FileInputStream stream = null;
         try {
             AlgotitmoLexico scanner;
             stream = new FileInputStream("src"+File.separator+"Lexico"+File.separator+"Tokens.txt");
             java.io.Reader reader = new java.io.InputStreamReader(stream);
             scanner = new AlgotitmoLexico(reader);
-            while ( !scanner.zzAtEOF ) scanner.yylex();
+            while ( !scanner.zzAtEOF ) scanner.yylex(); 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Interprete.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
