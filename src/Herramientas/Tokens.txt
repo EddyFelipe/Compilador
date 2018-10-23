@@ -1,8 +1,8 @@
-
 boleano
 cadena
 clase
 codigo
+desde
 escribir
 entonces
 encaso
@@ -18,5 +18,7 @@ numero
 nulo
 paracada
 retornar
-
-
+si
+sino
+verdadero
+variable

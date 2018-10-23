@@ -18,7 +18,6 @@ public class Interprete {
      */
     
     public static void main(String[] args) {
-
         FileInputStream stream = null;
         try {
             AlgotitmoLexico scanner;
