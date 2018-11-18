@@ -1,0 +1,107 @@
+package CodigoFases;
+import java_cup.runtime.Symbol;
+
+
+/*SIMBOLOS TERMINALES
+ DE PALABRAS RESERVADAS*/
+
+terminal INCLUIR;
+terminal CLASE;
+terminal ESCRIBIR;
+terminal FUNCION;
+terminal PARACADA;
+terminal RETORNAR;
+terminal CODIGO;
+terminal LEER;
+terminal VARIABLE;
+terminal PRINCIPAL;
+
+/*TIPO DATO*/
+terminal CADENA;
+terminal NUMERO;
+terminal NULO;
+
+/*LOGICOS*/
+terminal FALSO;
+terminal BOLEANO;
+terminal VERDADERO;
+
+/*CICLOS*/
+terminal HACER;
+terminal DESDE;
+terminal ITERAR;
+terminal MIENTRAS;
+terminal INCREMENTAR; 
+
+/*CONDICIONES*/
+terminal SI;
+terminal SINO;
+terminal ENTONCES;
+terminal ENCASO;
+
+/*OPERACIONES*/
+terminal SUMA;
+terminal RESTA;
+terminal MUL;
+terminal DIV;
+
+/*OPERADORES LOGICOS*/
+terminal MENORQ;  
+terminal MAYORQ;
+terminal IGUAL;
+
+/*SIMBOLOS*/
+terminal PUNTO;
+terminal PUNTOCOMA;
+terminal PARAB;  /*parentecis abierto*/
+terminal PARCE;  /*parentecis cerrado*/
+terminal DPUNTO;
+terminal COMILLA;
+
+/*OTROS*/
+terminal ID;
+terminal ENTERO; /*numero de retorno el fn principal */
+terminal TAB, DTAB;
+
+/*PRODUCCIONES NO TERMINAL*/
+non terminal GLOBAL;
+non terminal pr_CODIGOGLOBAL;
+
+non terminal expr_INCLUIR, pr_INCLUIR, pr_DECLARACION_INCLUIR;
+non terminal expr_FNPRINCIPAL;
+
+/*partes fundamentales de fn o class*/
+non terminal expr_VARIABLES, expr_CODIGO;
+non terminal expr_DECLARACIONVAR;
+non terminal TIPODATO;
+
+start with GLOBAL;
+
+/*PRODUCCION PRINCIPAL DE UN PROGRAMA*/
+ GLOBAL ::= pr_CODIGOGLOBAL
+            ;
+
+/*codigo para incluir bibliotecas*/         
+pr_CODIGOGLOBAL ::=  pr_INCLUIR
+                     expr_FNPRINCIPAL
+                     ;
+pr_INCLUIR ::=  pr_DECLARACION_INCLUIR
+                    ;
+pr_DECLARACION_INCLUIR ::= INCLUIR COMILLA ID COMILLA ;
+/*-----------------------------------------------------------*/
+
+/*funcion principal*/
+expr_FNPRINCIPAL ::= FUNCION NUMERO PRINCIPAL PARAB PARCE DPUNTO
+                     expr_VARIABLES
+                     expr_CODIGO
+                     RETORNAR ENTERO PUNTOCOMA
+                     ;
+expr_VARIABLES ::= TAB VARIABLE DPUNTO
+                    ;
+
+expr_CODIGO ::= TAB CODIGO DPUNTO
+                ;
+expr_DECLARACIONVAR ::= TIPODATO PUNTOCOMA;
+TIPODATO ::= NUMERO
+            | CADENA
+            | BOLEANO ;

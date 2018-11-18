@@ -1,13 +1,14 @@
-package Lexico;
+package CodigoFases;
 import Herramientas.*;
+import java_cup.runtime.Symbol;
 
 %%
 
-%class AlgotitmoLexico
+%class CodigoLexico
 %line
 %column
+%cup
 %public
-%standalone
 
 /*VARIABLES GLOBALES*/
 %{
@@ -15,7 +16,7 @@ import Herramientas.*;
 %}
 /*CODIGO EN EL CONSTRUCTOR*/
 %init{
-   TablaSimbolos tabl = new TablaSimbolos();
+   /*TablaSimbolos tabl = new TablaSimbolos();*/
 %init}
 
 /****************Expresiones Regulares************************/
@@ -55,22 +56,18 @@ DecAbr = \-\=
 Asignacion = \=
 
 /*******************Simbolos*****************************/
-DosPuntos = \:
-ParentesisA = \(
-ParentesisC = \)
 Punto = \.
 Coma = \,
 CorcheteA = \[ 
 CorcheteC = \]
 Comillas = \"
-PuntoComa = \;
 
 /*****************Para los comentarios*******************/
 Lespeciales = \# | \$ | \@ | \' | \¿ | \? | \ñ | \Ñ | \! | á | é | í | ó | ú | Á | É | Í | Ó | Ú
 OpBas = \+ | \- | \/ | \* | \^ | \%
 Simbolos = \: | \( | \) | \. | \, | \[ | \] | \" | \;
 caracteres =  {Cadenas} | {Lespeciales} | {Reales} | {OpBas} | {Simbolos}
-Comentario = "//"({caracteres} | [ \t\f\r])* | "/*"({caracteres} | {WhiteSpace})*"*/"
+Comentario = "//"({caracteres} | [ \t\f\r])* | "/*" ~"*/"
 
 /****************Para los errores**********************/
 ErCadena = {Reales}{letras}({caracteres} | {guion} | {Reales} )*
@@ -80,35 +77,60 @@ ErOplog = (({oplog} | {ErAdicionales})+({oplog})({oplog} | {ErAdicionales})* | (
 | \=\!
 ErOpBas = ({OpBas})+({OpBas})({OpBas})* | ({OpBas})*({OpBas})({OpBas})+
 
+/****************Indentacion***************************/
+Identacion = "    "
+DobbIdentacion = {Identacion}{2}
+
+
+%state STRING
 
 %%
 /**/
-{Comentario}    { System.out.println("Comentario: " + yytext()); }
-{ErCadena}      { System.out.println("Error: " + yytext()); }
-{ErOplog}       { System.out.println("ErLOg: " + yytext()); }
-{ErOpBas}       { TablaSimbolos.EscribirSimbolos(yytext()); }
-{DosPuntos}     { TablaSimbolos.EscribirSimbolos(yytext()); }
-{ParentesisA}   { TablaSimbolos.EscribirSimbolos(yytext()); }
-{ParentesisC}   { TablaSimbolos.EscribirSimbolos(yytext()); }
-{Punto}         { TablaSimbolos.EscribirSimbolos(yytext()); }
-{Coma}          { TablaSimbolos.EscribirSimbolos(yytext()); }
-{CorcheteA}     { TablaSimbolos.EscribirSimbolos(yytext()); }
-{CorcheteC}     { TablaSimbolos.EscribirSimbolos(yytext()); }
-{Comillas}      { TablaSimbolos.EscribirSimbolos(yytext()); }
-{PuntoComa}     { TablaSimbolos.EscribirSimbolos(yytext()); }
-{Tokens}        { TablaSimbolos.Buscar(yytext()); }
-{Reales}        { TablaSimbolos.EscribirNumeros(yytext()); }
-{Cadenas}       { TablaSimbolos.EscribirIdentificador(yytext()); }
-{Suma}          { TablaSimbolos.EscribirOperacionesBas(yytext());}
-{Resta}         { TablaSimbolos.EscribirOperacionesBas(yytext());}
-{Multi}         { TablaSimbolos.EscribirOperacionesBas(yytext());}
-{Div}           { TablaSimbolos.EscribirOperacionesBas(yytext());}
-{Mod}           { TablaSimbolos.EscribirOperacionesBas(yytext());}
-{Potencia}      { TablaSimbolos.EscribirOperacionesBas(yytext());}
-{Inc}           { TablaSimbolos.EscribirOperacionesBas(yytext()); }
-{Dec}           { TablaSimbolos.EscribirOperacionesBas(yytext()); }
-{IncAbr}        { TablaSimbolos.EscribirOperacionesBas(yytext()); }
-{DecAbr}        { TablaSimbolos.EscribirOperacionesBas(yytext()); }
-{Asignacion}    { TablaSimbolos.EscribirOperacionesBas(yytext()); }
-{oplog}         { TablaSimbolos.EscribirLogico(yytext()); }
+<YYINITIAL>{
 {WhiteSpace}    {}
+{Comentario}    { System.out.println("Comentario: "+ yytext()); }
+"boleano"       {}
+"cadena"        {}
+"clase"         {}
+"codigo"        { return new Symbol(sym.CODIGO); }
+"desde"         {}
+"escribir"      {}
+"entonces"      {}
+"encaso"        {}
+"funcion"       { return new Symbol(sym.FUNCION); }  
+"falso"         {}
+"hacer"         {}
+"iterar"        {}
+"incrementar"   {}
+"incluir"       { return new Symbol(sym.INCLUIR); }
+"leer"          {}
+"mientras"      {}
+"numero"        { return new Symbol(sym.NUMERO); }
+"nulo"          {}
+"paracada"      {}
+"principal"     { return new Symbol(sym.PRINCIPAL); }
+"retornar"      { return new Symbol(sym.RETORNAR); }
+"si"            {}
+"sino"          {}
+"verdadero"     {}
+"variable"      { return new Symbol(sym.VARIABLE); }
+"("             { return new Symbol(sym.PARAB); }
+")"             { return new Symbol(sym.PARCE); }
+"0"             { return new Symbol(sym.ENTERO); }
+":"             { return new Symbol(sym.DPUNTO); }
+";"             { return new Symbol(sym.PUNTOCOMA); }
+{Identacion}    { return new Symbol(sym.TAB); }
+{Cadenas}       { return new Symbol(sym.ID); }
+\"              {   yybegin(STRING);
+                    return new Symbol(sym.COMILLA);
+                  } 
+}
+
+<STRING>{
+ \"             {   yybegin(YYINITIAL);
+                    return new Symbol(sym.COMILLA);
+                }
+/*Hay que hacer alguna modificacion en el nombre de incluir*/
+ {caracteres}      {  System.out.println("ID: "+yytext());
+                    return new Symbol(sym.ID); }
+}

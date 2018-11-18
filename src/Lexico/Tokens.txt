@@ -1,2 +1,8 @@
-escribir ("hola mundo"); >= < !=
-/*j kbbkb*/
+incluir "mundo"
+
+funcion numero principal():
+    variable:
+
+    codigo:
+
+retornar 0;

@@ -1,12 +1,12 @@
 package interprete;
 
-import Lexico.*;
-import java.io.File;
-import java.io.FileInputStream;
+
+import CodigoFases.*;
 import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.FileReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.File;
 
 /**
  *
@@ -18,23 +18,14 @@ public class Interprete {
      */
     
     public static void main(String[] args) {
-        FileInputStream stream = null;
         try {
-            AlgotitmoLexico scanner;
-            stream = new FileInputStream("src"+File.separator+"Lexico"+File.separator+"Tokens.txt");
-            java.io.Reader reader = new java.io.InputStreamReader(stream);
-            scanner = new AlgotitmoLexico(reader);
-            while ( !scanner.zzAtEOF ) scanner.yylex(); 
+            CodigoLexico analizadorlexico = new CodigoLexico(new FileReader("src"+File.separator+"Lexico"+File.separator+"Tokens.txt"));
+            CodigoSintaxis analizadorSintactico = new CodigoSintaxis(analizadorlexico);
+            analizadorSintactico.parse();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Interprete.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Interprete.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                stream.close();
-            } catch (IOException ex) {
-                Logger.getLogger(Interprete.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
     
