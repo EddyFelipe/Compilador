@@ -2,6 +2,7 @@ incluir "mundo"
 
 funcion numero principal():
     variable:
+    numero var;
 
     codigo:
 

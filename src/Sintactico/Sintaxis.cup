@@ -97,11 +97,15 @@ expr_FNPRINCIPAL ::= FUNCION NUMERO PRINCIPAL PARAB PARCE DPUNTO
                      RETORNAR ENTERO PUNTOCOMA
                      ;
 expr_VARIABLES ::= TAB VARIABLE DPUNTO
+                   TAB expr_DECLARACIONVAR
                     ;
 
 expr_CODIGO ::= TAB CODIGO DPUNTO
                 ;
-expr_DECLARACIONVAR ::= TIPODATO PUNTOCOMA;
+
+/*Declaracion de variable*/
+expr_DECLARACIONVAR ::= TIPODATO ID PUNTOCOMA;
+
 TIPODATO ::= NUMERO
             | CADENA
             | BOLEANO ;

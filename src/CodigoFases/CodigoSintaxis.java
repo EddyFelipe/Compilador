@@ -33,7 +33,7 @@ public class CodigoSintaxis extends java_cup.runtime.lr_parser {
     unpackFromStrings(new String[] {
     "\000\014\000\002\002\004\000\002\002\003\000\002\003" +
     "\004\000\002\005\003\000\002\006\006\000\002\007\015" +
-    "\000\002\010\005\000\002\011\005\000\002\012\004\000" +
+    "\000\002\010\007\000\002\011\005\000\002\012\005\000" +
     "\002\013\003\000\002\013\003\000\002\013\003" });
 
   /** Access to production table. */
@@ -42,9 +42,9 @@ public class CodigoSintaxis extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\034\000\004\004\007\001\002\000\004\007\ufffe\001" +
-    "\002\000\004\002\036\001\002\000\004\002\000\001\002" +
-    "\000\004\051\033\001\002\000\004\007\012\001\002\000" +
+    "\000\044\000\004\004\007\001\002\000\004\007\ufffe\001" +
+    "\002\000\004\002\046\001\002\000\004\002\000\001\002" +
+    "\000\004\051\043\001\002\000\004\007\012\001\002\000" +
     "\004\002\uffff\001\002\000\004\017\013\001\002\000\004" +
     "\015\014\001\002\000\004\046\015\001\002\000\004\047" +
     "\016\001\002\000\004\050\017\001\002\000\004\054\020" +
@@ -53,7 +53,11 @@ public class CodigoSintaxis extends java_cup.runtime.lr_parser {
     "\000\004\053\025\001\002\000\004\045\026\001\002\000" +
     "\004\002\ufffc\001\002\000\004\050\030\001\002\000\004" +
     "\011\ufffa\001\002\000\004\050\032\001\002\000\004\054" +
-    "\ufffb\001\002\000\004\052\034\001\002\000\004\051\035" +
+    "\033\001\002\000\010\016\040\017\034\022\037\001\002" +
+    "\000\004\052\ufff8\001\002\000\004\054\ufffb\001\002\000" +
+    "\004\052\041\001\002\000\004\052\ufff6\001\002\000\004" +
+    "\052\ufff7\001\002\000\004\045\042\001\002\000\004\054" +
+    "\ufff9\001\002\000\004\052\044\001\002\000\004\051\045" +
     "\001\002\000\004\007\ufffd\001\002\000\004\002\001\001" +
     "\002" });
 
@@ -63,7 +67,7 @@ public class CodigoSintaxis extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\034\000\012\002\004\003\005\005\007\006\003\001" +
+    "\000\044\000\012\002\004\003\005\005\007\006\003\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\004\007\010\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
@@ -71,8 +75,11 @@ public class CodigoSintaxis extends java_cup.runtime.lr_parser {
     "\001\000\002\001\001\000\004\011\022\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001" });
+    "\000\002\001\001\000\002\001\001\000\006\012\034\013" +
+    "\035\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
+    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
+    "\000\002\001\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -194,11 +201,11 @@ class CUP$CodigoSintaxis$actions {
           return CUP$CodigoSintaxis$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 6: // expr_VARIABLES ::= TAB VARIABLE DPUNTO 
+          case 6: // expr_VARIABLES ::= TAB VARIABLE DPUNTO TAB expr_DECLARACIONVAR 
             {
               Object RESULT =null;
 
-              CUP$CodigoSintaxis$result = parser.getSymbolFactory().newSymbol("expr_VARIABLES",6, ((java_cup.runtime.Symbol)CUP$CodigoSintaxis$stack.elementAt(CUP$CodigoSintaxis$top-2)), ((java_cup.runtime.Symbol)CUP$CodigoSintaxis$stack.peek()), RESULT);
+              CUP$CodigoSintaxis$result = parser.getSymbolFactory().newSymbol("expr_VARIABLES",6, ((java_cup.runtime.Symbol)CUP$CodigoSintaxis$stack.elementAt(CUP$CodigoSintaxis$top-4)), ((java_cup.runtime.Symbol)CUP$CodigoSintaxis$stack.peek()), RESULT);
             }
           return CUP$CodigoSintaxis$result;
 
@@ -212,11 +219,11 @@ class CUP$CodigoSintaxis$actions {
           return CUP$CodigoSintaxis$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 8: // expr_DECLARACIONVAR ::= TIPODATO PUNTOCOMA 
+          case 8: // expr_DECLARACIONVAR ::= TIPODATO ID PUNTOCOMA 
             {
               Object RESULT =null;
 
-              CUP$CodigoSintaxis$result = parser.getSymbolFactory().newSymbol("expr_DECLARACIONVAR",8, ((java_cup.runtime.Symbol)CUP$CodigoSintaxis$stack.elementAt(CUP$CodigoSintaxis$top-1)), ((java_cup.runtime.Symbol)CUP$CodigoSintaxis$stack.peek()), RESULT);
+              CUP$CodigoSintaxis$result = parser.getSymbolFactory().newSymbol("expr_DECLARACIONVAR",8, ((java_cup.runtime.Symbol)CUP$CodigoSintaxis$stack.elementAt(CUP$CodigoSintaxis$top-2)), ((java_cup.runtime.Symbol)CUP$CodigoSintaxis$stack.peek()), RESULT);
             }
           return CUP$CodigoSintaxis$result;
 
